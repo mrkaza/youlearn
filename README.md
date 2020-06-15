@@ -1,5 +1,8 @@
 # yourlearn4
-
+```
+This project is made to keep everything at one place and organized while learning from Youtube.
+It was made usin VueJs with Vuetify on top.
+```
 ## Project setup
 ```
 yarn install
