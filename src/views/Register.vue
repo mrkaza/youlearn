@@ -18,12 +18,12 @@
       <h1>Create your account.</h1>
 
          <form class="forma-input">
-           <p>*required for both ways</p>
+           <!-- <p>*required for both ways</p> -->
            <div class="inputi">
              <v-icon class="ikonica" color="#d3d3d3">mdi-account-outline</v-icon>
               <input class="inputs" type="text" placeholder="Username" v-model="username">
            </div>
-           <div class="text-center">
+           <!-- <div class="text-center">
           <button type="button" @click="googleRegister" class="s-dugme google">
               Register with   
             <v-icon right color="white">
@@ -31,7 +31,7 @@
               </v-icon>           
           </button>
           <p>or</p>
-        </div>
+        </div> -->
            
            
            <div class="inputi inp-mar">
@@ -63,7 +63,7 @@
 // @ is an alias to /src
 import {firebaseAuth, firebaseDb} from '../firebase/init'
 import slugify from 'slugify'
-import firebase from 'firebase'
+// import firebase from 'firebase'
 
 export default {
   name: 'register',
@@ -124,59 +124,59 @@ export default {
       }
     },
     
-    googleRegister() {
+    // googleRegister() {
 
-      if(this.username) {
-        this.slug = slugify(this.username, {
-          replacement:'-',
-          remove: /[$*_+~.()'"!\-:@]/g,
-          lower: true
-        });
-        let ref = firebaseDb.collection('users').doc(this.slug)
-        var provider = new firebase.auth.GoogleAuthProvider()
-        ref.get().then(doc => {
-          if(doc.exists) {
-            this.errorMessage = 'This username is already in use'
-          } else {
-            firebaseAuth.signInWithPopup(provider).then(cred => {
-              // eslint-disable-next-line no-console
+    //   if(this.username) {
+    //     this.slug = slugify(this.username, {
+    //       replacement:'-',
+    //       remove: /[$*_+~.()'"!\-:@]/g,
+    //       lower: true
+    //     });
+    //     let ref = firebaseDb.collection('users').doc(this.slug)
+    //     var provider = new firebase.auth.GoogleAuthProvider()
+    //     ref.get().then(doc => {
+    //       if(doc.exists) {
+    //         this.errorMessage = 'This username is already in use'
+    //       } else {
+    //         firebaseAuth.signInWithPopup(provider).then(cred => {
+    //           // eslint-disable-next-line no-console
               
-              // eslint-disable-next-line no-unused-vars
-              let postoji = firebaseDb.collection('users').where('user_id','==',cred.user.uid).get().then(snapshot => {
-                // eslint-disable-next-line no-console
+    //           // eslint-disable-next-line no-unused-vars
+    //           let postoji = firebaseDb.collection('users').where('user_id','==',cred.user.uid).get().then(snapshot => {
+    //             // eslint-disable-next-line no-console
               
-                if(snapshot.empty == false) {
-                  this.$router.push('/search')
-                } else {
-                  ref.set({
-                 username: this.username,
-                user_id: cred.user.uid,
-                todos: [],
-                playlist:[],
-                pdf:[],
-                browser: false,
-                profilna: 'https://firebasestorage.googleapis.com/v0/b/youlearn-it.appspot.com/o/profdefau.png?alt=media&token=1b8a26db-612e-4806-b568-cfe5b2a63805'
-              })
-                }
-              })
-              // eslint-disable-next-line no-console
+    //             if(snapshot.empty == false) {
+    //               this.$router.push('/search')
+    //             } else {
+    //               ref.set({
+    //              username: this.username,
+    //             user_id: cred.user.uid,
+    //             todos: [],
+    //             playlist:[],
+    //             pdf:[],
+    //             browser: false,
+    //             profilna: 'https://firebasestorage.googleapis.com/v0/b/youlearn-it.appspot.com/o/profdefau.png?alt=media&token=1b8a26db-612e-4806-b568-cfe5b2a63805'
+    //           })
+    //             }
+    //           })
+    //           // eslint-disable-next-line no-console
               
               
               
-            }).then(() => {
-              this.$router.push('/search')
-            }).catch(error => {
-              this.errorMessage = error.message
-            })
-          }
-        })
-      } else {
-        this.errorMessage = 'You must enter your username.'
-      }
+    //         }).then(() => {
+    //           this.$router.push('/search')
+    //         }).catch(error => {
+    //           this.errorMessage = error.message
+    //         })
+    //       }
+    //     })
+    //   } else {
+    //     this.errorMessage = 'You must enter your username.'
+    //   }
       
       
      
-    },
+    // },
 
     
   }

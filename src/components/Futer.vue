@@ -13,7 +13,7 @@
       </v-btn>
       
     </div> -->
-      <p>Created by: <a href="https://marko-port.netlify.com/" target="_blank">Marko Mrkonjic</a></p>
+      <p>Created by: <span> Marko Mrkonjic</span></p>
    </div>
   </div>
 </template>
@@ -60,7 +60,7 @@ export default {
       font-weight: bold;
       font-size:13px;
     }
-    .sve a {
+    .sve span {
       color:#eee;
       text-decoration: none;
     }

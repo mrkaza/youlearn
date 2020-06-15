@@ -40,13 +40,13 @@
               mdi-login
               </v-icon>
           </button>
-          <p class="or">or</p>
+          <!-- <p class="or">or</p>
           <button class="s-dugme google" @click="loginGoogle">
           Login with 
           <v-icon color="white" right>
             mdi-google
           </v-icon>
-          </button>  
+          </button>   -->
         </div>
         
      </div>
@@ -55,7 +55,7 @@
 
 <script>
 import {firebaseAuth} from '../firebase/init'
-import firebase from 'firebase'
+// import firebase from 'firebase'
 
 
 export default {
@@ -89,15 +89,15 @@ export default {
         this.errorMessage ="You must enter all fields."
       }
     },
-    loginGoogle() {
-      var provider = new firebase.auth.GoogleAuthProvider()
-      // eslint-disable-next-line no-unused-vars
-      firebaseAuth.signInWithPopup(provider).then(cred=> {
-        this.$router.push('/search')
-      }).catch(error => {
-        this.errorMessage = error.message
-      })
-    }
+    // loginGoogle() {
+    //   var provider = new firebase.auth.GoogleAuthProvider()
+    //   // eslint-disable-next-line no-unused-vars
+    //   firebaseAuth.signInWithPopup(provider).then(cred=> {
+    //     this.$router.push('/search')
+    //   }).catch(error => {
+    //     this.errorMessage = error.message
+    //   })
+    // }
   }
 }
 </script>
